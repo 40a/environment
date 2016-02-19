@@ -1,4 +1,4 @@
-Get-Date
+Get-Date | Out-File c:\scripts\log.txt
 $i = $input | ConvertFrom-JSON
 $c = $i.Count
 "$c items read"
