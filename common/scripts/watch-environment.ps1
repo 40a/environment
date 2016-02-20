@@ -10,5 +10,5 @@ else
 }
 
 $uri = gc c:\scripts\slack.txt
-$msg = $env:COMPUTERNAME + (irm http://169.254.169.254/latest/meta-data/hostname)
+$msg = "$env:COMPUTERNAME : $(irm http://169.254.169.254/latest/meta-data/hostname)"
 if ($uri ) { irm -Body $msg -Method post -Uri $uri }
