@@ -8,3 +8,7 @@ else
 { 
 	iex (irm  "http://localhost:8500/v1/kv/infra/skynet/bootstrap?raw&token=$env:CONSUL_TOKEN") 
 }
+
+$uri = gc c:\scripts\slack.txt
+$msg = $env:COMPUTERNAME
+if ($uri ) { irm -Body $msg -Method post -Uri $uri }
