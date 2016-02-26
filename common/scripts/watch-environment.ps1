@@ -16,3 +16,5 @@ else
     (Get-Date).Ticks | Out-File -LiteralPath C:\Scripts\watch-last.txt -Force
     return 0
 }
+
+#test
