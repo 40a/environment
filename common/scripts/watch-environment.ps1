@@ -14,6 +14,7 @@ else
 $uri = gc c:\scripts\slack.txt
 $msg = ">>> $(Get-Date) : $env:COMPUTERNAME : $(irm http://169.254.169.254/latest/meta-data/hostname)"
 if ($uri ) { irm -Body $msg -Method post -Uri $uri }
+sleep 5
 Remove-Item c:\scripts\watch-lock.txt -Force
 return 0
 #test 6
