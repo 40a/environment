@@ -17,4 +17,4 @@ if ($uri ) { irm -Body $msg -Method post -Uri $uri }
 sleep 5
 Remove-Item c:\scripts\watch-lock.txt -Force
 return 0
-#test 7
+#test 8
