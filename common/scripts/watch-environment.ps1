@@ -1,9 +1,8 @@
-if (Test-Path c:\scripts\watch-lock.txt) {return 0}
-
-Get-Date | Out-File c:\scripts\watch-lock.txt -Force
 $i = $input | ConvertFrom-JSON
 $c = $i.Count
 "$c items read"
+if (Test-Path c:\scripts\watch-lock.txt) {return 0}
+Get-Date | Out-File c:\scripts\watch-lock.txt -Force
 if ($c -eq 0)
 { "Void" }
 else
