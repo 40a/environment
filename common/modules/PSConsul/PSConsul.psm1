@@ -27,7 +27,8 @@ function Add-Watcher
         $servicename = "consulwatch-$name"
         $powershell = "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe"
         $consul = "C:\ProgramData\chocolatey\lib\consul\tools\consul.exe"
-        $param = "watch -type keyprefix -prefix $Key -token $Token $Script"
+        if ($Token) { $Token = "-token $Token" }
+        $param = "watch -type keyprefix -prefix $Key $Token $Script"
         if (Get-Service $servicename)
         {
             Stop-Service $servicename
