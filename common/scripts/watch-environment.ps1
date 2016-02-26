@@ -16,4 +16,4 @@ $msg = ">>> $(Get-Date) : $env:COMPUTERNAME : $(irm http://169.254.169.254/lates
 if ($uri ) { irm -Body $msg -Method post -Uri $uri }
 Remove-Item c:\scripts\watch-lock.txt -Force
 return 0
-#test 4
+#test 5
