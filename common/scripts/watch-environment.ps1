@@ -1,8 +1,9 @@
 $i = $input | ConvertFrom-JSON
 $c = $i.Count
 "$c items read"
-if (Test-Path c:\scripts\watch-lock.txt) {return 0}
-Get-Date | Out-File c:\scripts\watch-lock.txt -Force
+#if (Test-Path c:\scripts\watch-lock.txt) {return 0}
+#Get-Date | Out-File c:\scripts\watch-lock.txt -Force
+$diff = (Get-Date).Ticks - [int64](gc C:\Scripts\watch-last1.txt -ea SilentlyContinue)
 if ($c -eq 0)
 { "Void" }
 else
@@ -11,9 +12,9 @@ else
 }
 
 $uri = gc c:\scripts\slack.txt
-$msg = ">>> $(Get-Date) : $env:COMPUTERNAME : $(irm http://169.254.169.254/latest/meta-data/hostname)"
+$msg = ">>> $(Get-Date) : $env:COMPUTERNAME : $(irm http://169.254.169.254/latest/meta-data/hostname) : $diff"
 if ($uri ) { irm -Body $msg -Method post -Uri $uri }
-sleep 5
-Remove-Item c:\scripts\watch-lock.txt -Force
+#Remove-Item c:\scripts\watch-lock.txt -Force
+(Get-Date).Ticks | Out-File -LiteralPath C:\Scripts\watch-last.txt -Force
 return 0
 #test 9
