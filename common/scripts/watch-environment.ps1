@@ -1,5 +1,6 @@
-Get-Date
-# | Out-File c:\scripts\log.txt
+if (Test-Path c:\scripts\watch-lock.txt) {return 0}
+
+Get-Date | Out-File c:\scripts\watch-lock.txt -Force
 $i = $input | ConvertFrom-JSON
 $c = $i.Count
 "$c items read"
@@ -13,5 +14,6 @@ else
 $uri = gc c:\scripts\slack.txt
 $msg = "$env:COMPUTERNAME : $(irm http://169.254.169.254/latest/meta-data/hostname)"
 if ($uri ) { irm -Body $msg -Method post -Uri $uri }
+Remove-Item c:\scripts\watch-lock.txt -Force
 return 0
 #test 4
