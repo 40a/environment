@@ -3,7 +3,7 @@ $c = $i.Count
 "$c items read"
 #if (Test-Path c:\scripts\watch-lock.txt) {return 0}
 #Get-Date | Out-File c:\scripts\watch-lock.txt -Force
-$diff = (Get-Date).Ticks - [int64](gc C:\Scripts\watch-last1.txt -ea SilentlyContinue)
+$diff = (Get-Date).Ticks - [int64](gc C:\Scripts\watch-last.txt -ea SilentlyContinue)
 if ($c -eq 0)
 { "Void" }
 else
