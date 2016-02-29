@@ -17,4 +17,4 @@ else
     return 0
 }
 
-#test 12
+consul reload
