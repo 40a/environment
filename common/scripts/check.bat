@@ -1,3 +1,3 @@
 @echo off
-echo %DATE% %TIME% >> c:\Scripts\ok.txt
+echo OK: %DATE% %TIME% >> c:\Scripts\ok.txt
 exit 0
