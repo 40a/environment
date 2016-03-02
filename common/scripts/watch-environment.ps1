@@ -18,5 +18,3 @@ else
 }
 
 consul reload
-
-#test 12345
