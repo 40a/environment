@@ -1,4 +1,4 @@
 [ 
-	{ "consul": "C:\\ProgramData\\consul\\config"},
+	{ "consul": "C:\\ProgramData\\consul\\config-template"},
 	{ "test"  : "C:\\test"} 
 ] 
